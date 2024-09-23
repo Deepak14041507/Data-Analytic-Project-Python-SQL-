@@ -24,7 +24,7 @@ from df_orders
 group by products
 order by revenue desc limit 10;
 
--- Find top 5 heighest selling products in each region
+-- Q2.Find top 5 heighest selling products in each region
 select *
 from 
 (select *,rank()
@@ -36,7 +36,7 @@ group by region,products
 order by region,products) as a) as b
 where RN<=3;
 
--- find month over month growth comparison for 2022 and 2023 sales eg: jan 2022 vs jan 2023
+-- Q3.find month over month growth comparison for 2022 and 2023 sales eg: jan 2022 vs jan 2023
 
 with cte as 
 (select month,year,sales from(select * , rank()
